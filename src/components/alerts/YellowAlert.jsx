@@ -1,8 +1,9 @@
 import { ExclamationTriangleIcon } from '@heroicons/react/20/solid'
 
-export const YellowAlert = ({ passwordFeedback }) => {
+export const YellowAlert = ({ passwordResults }) => {
 
-    const { warning, suggestions } = passwordFeedback;
+    const { feedback } = passwordResults;
+    const { warning, suggestions } = feedback;
 
   return (
     <div className="rounded-md bg-yellow-50 p-4">

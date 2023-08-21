@@ -14,7 +14,7 @@ const passwordStrength = [
   {
     score: 1,
     text: "Weak",
-    color: "text-yellow-500",
+    color: "text-red-500",
   },
   {
     score: 2,
@@ -41,7 +41,6 @@ export const PassChecker = () => {
     if (password) {
       const results = zxcvbn(password);
       setPasswordResults(results);
-      console.log(results);
     }
   }, [password]);
 
@@ -62,14 +61,13 @@ export const PassChecker = () => {
           className="w-96 md:w-96 rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white mt-4"
           placeholder="Enter a password"
         />
+        
         {password && (
           <p className="text-center mt-2 font-bold text-lg leading-8 text-gray-300">
             Your password secure score is{" "}
             <span
               className={`${
-                passwordStrength.find(
-                  (strength) => strength.score === passwordResults.score
-                )?.color || ""
+                passwordStrength[passwordResults.score]?.color || ""
               }`}
             >
               {passwordResults.score + 1 || 0} / 5
@@ -78,21 +76,21 @@ export const PassChecker = () => {
           </p>
         )}
         <div className="mt-2">
-          {password && passwordResults.score === 0 && (
-            <RedAlert passwordFeedback={passwordResults.feedback} />
+          {password && (passwordResults.score === 0 || passwordResults.score === 1) && (
+            <RedAlert passwordResults={passwordResults} />
           )}
 
-          {password &&
-            (passwordResults.score === 1 || passwordResults.score === 2) && (
-              <YellowAlert passwordFeedback={passwordResults.feedback} />
+          {password && passwordResults.score === 2 && (
+              <YellowAlert passwordResults={passwordResults} />
             )}
 
-          {password && (passwordResults.score === 3 || passwordResults.score === 4) &&  (
-            <GreenAlert passwordFeedback={passwordResults.feedback} />
-          )}
+          {password &&
+            (passwordResults.score === 3 || passwordResults.score === 4) && (
+              <GreenAlert passwordResults={passwordResults} />
+            )}
         </div>
 
-        {/* <TableResults passwordData={passwordResults} /> */}
+        <TableResults passwordData={passwordResults} />
       </div>
     </div>
   );
