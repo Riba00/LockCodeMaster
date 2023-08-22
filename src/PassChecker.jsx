@@ -45,52 +45,77 @@ export const PassChecker = () => {
   }, [password]);
 
   return (
-    <div className="flex justify-center py-4 min-h-screen bg-gray-900">
-      <div className="flex flex-col items-center overflow-hidden m-2 px-6 py-3 sm:px-6">
-        <h2 className="text-center text-3xl mb-2 font-bold tracking-tight text-white sm:text-4xl">
-          PassChecker
-        </h2>
-        <p className="text-center text-lg leading-8 text-gray-300">
-          How secure is your password?
-        </p>
+    <div className="min-h-screen relative isolate overflow-hidden bg-gray-900 px-6 py-24 shadow-2xl">
+      <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        Passwd Checker
+      </h2>
+      <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
+        Audit your codes for security and shield your digital realm with
+        certainty
+      </p>
+      <div className="mx-auto mt-10 flex max-w-md gap-x-4">
         <input
-          id="passChecker"
+          id="password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-96 md:w-96 rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white mt-4"
-          placeholder="Enter a password"
+          className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+          placeholder="Enter your password"
         />
-        
-        {password && (
-          <p className="text-center mt-2 font-bold text-lg leading-8 text-gray-300">
-            Your password secure score is{" "}
-            <span
-              className={`${
-                passwordStrength[passwordResults.score]?.color || ""
-              }`}
-            >
-              {passwordResults.score + 1 || 0} / 5
-            </span>
-            !
-          </p>
-        )}
-        <div className="mt-2">
-          {password && (passwordResults.score === 0 || passwordResults.score === 1) && (
+      </div>
+      {password && (
+        <p className="text-center mt-2 font-bold text-lg leading-8 text-gray-300">
+          Your password secure score is{" "}
+          <span
+            className={`${
+              passwordStrength[passwordResults.score]?.color || ""
+            }`}
+          >
+            {passwordResults.score + 1 || 0} / 5
+          </span>
+          !
+        </p>
+      )}
+      <div className="mt-2 mx-auto max-w-md">
+        {password &&
+          (passwordResults.score === 0 || passwordResults.score === 1) && (
             <RedAlert passwordResults={passwordResults} />
           )}
 
-          {password && passwordResults.score === 2 && (
-              <YellowAlert passwordResults={passwordResults} />
-            )}
+        {password && passwordResults.score === 2 && (
+          <YellowAlert passwordResults={passwordResults} />
+        )}
 
-          {password &&
-            (passwordResults.score === 3 || passwordResults.score === 4) && (
-              <GreenAlert passwordResults={passwordResults} />
-            )}
-        </div>
-
-        <TableResults passwordData={passwordResults} />
+        {password &&
+          (passwordResults.score === 3 || passwordResults.score === 4) && (
+            <GreenAlert passwordResults={passwordResults} />
+          )}
+        <svg
+          viewBox="0 0 1024 1024"
+          className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2"
+          aria-hidden="true"
+        >
+          <circle
+            cx={512}
+            cy={512}
+            r={512}
+            fill="url(#759c1415-0410-454c-8f7c-9a820de03641)"
+            fillOpacity="0.7"
+          />
+          <defs>
+            <radialGradient
+              id="759c1415-0410-454c-8f7c-9a820de03641"
+              cx={0}
+              cy={0}
+              r={1}
+              gradientUnits="userSpaceOnUse"
+              gradientTransform="translate(512 512) rotate(90) scale(512)"
+            >
+              <stop stopColor="#7775D6" />
+              <stop offset={1} stopColor="#E935C1" stopOpacity={0} />
+            </radialGradient>
+          </defs>
+        </svg>
       </div>
     </div>
   );

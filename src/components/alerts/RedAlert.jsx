@@ -15,7 +15,7 @@ export const RedAlert = ({ passwordResults }) => {
         </div>
         <div className="ml-3">
           <h3 className="font-bold text-red-500">
-            This password is{" "}
+            Your password is{" "}
             <b>
               {score === 0 && "VERY WEAK!!!"}
               {score === 1 && "WEAK!!!"}
