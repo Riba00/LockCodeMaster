@@ -1,49 +1,49 @@
 import { useState, useEffect } from "react";
 import zxcvbn from "zxcvbn";
-import {RedAlert, GreenAlert, YellowAlert} from "./alerts";
+import { RedAlert, GreenAlert, YellowAlert } from "./alerts";
 
 const passwordStrength = [
-    {
-      score: 0,
-      text: "Very weak",
-      color: "text-red-500",
-    },
-    {
-      score: 1,
-      text: "Weak",
-      color: "text-red-500",
-    },
-    {
-      score: 2,
-      text: "Fair",
-      color: "text-yellow-500",
-    },
-    {
-      score: 3,
-      text: "Good",
-      color: "text-green-500",
-    },
-    {
-      score: 4,
-      text: "Strong",
-      color: "text-green-500",
-    },
-  ];
+  {
+    score: 0,
+    text: "Very weak",
+    color: "text-red-500",
+  },
+  {
+    score: 1,
+    text: "Weak",
+    color: "text-red-500",
+  },
+  {
+    score: 2,
+    text: "Fair",
+    color: "text-yellow-500",
+  },
+  {
+    score: 3,
+    text: "Good",
+    color: "text-green-500",
+  },
+  {
+    score: 4,
+    text: "Strong",
+    color: "text-green-500",
+  },
+];
 
 export const PassChecker = () => {
+  const [password, setPassword] = useState("");
+  const [passwordResults, setPasswordResults] = useState({});
 
-    const [password, setPassword] = useState("");
-    const [passwordResults, setPasswordResults] = useState({});
-  
-    useEffect(() => {
-      if (password) {
-        const results = zxcvbn(password);
-        setPasswordResults(results);
-      }
-    }, [password]);
+  useEffect(() => {
+    if (password) {
+      const results = zxcvbn(password);
+      console.log(results);
+      setPasswordResults(results);
+    }
+  }, [password]);
   return (
     <div>
-        <div className="mx-auto mt-10 flex max-w-md gap-x-4">
+      <div className="mx-auto mt-10 flex max-w-md gap-x-4">
         <input
           id="password"
           type="password"
@@ -108,5 +108,5 @@ export const PassChecker = () => {
         </svg>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -12,7 +12,7 @@ export const GreenAlert = ({ passwordResults }) => {
           />
         </div>
         <div className="ml-3">
-          <h3 className="font-bold text-green-500">
+          <h3 className="font-bold text-lg text-green-500">
             Your password is{" "}
             <b>
               {score === 3 && "STRONG!!!"}

@@ -14,14 +14,14 @@ export const RedAlert = ({ passwordResults }) => {
           />
         </div>
         <div className="ml-3">
-          <h3 className="font-bold text-red-500">
+          <h3 className="font-bold text-lg text-red-500">
             Your password is{" "}
             <b>
               {score === 0 && "VERY WEAK!!!"}
               {score === 1 && "WEAK!!!"}
             </b>
           </h3>
-          {warning && <p className="text-sm text-red-700">{warning}.</p>}
+          {warning && <p className=" text-red-700">{warning}.</p>}
           <h4 className="text-sm font-medium text-red-800 mt-1">
             <b>TRY TO:</b>
           </h4>

@@ -1,4 +1,5 @@
 import { PassChecker } from "./components/PassChecker";
+import { PassGenerator } from "./components/PassGenerator";
 
 export const LockCode = () => {
 
@@ -11,6 +12,8 @@ export const LockCode = () => {
       <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
         Empower Your Online Life with Unbreakable Codes
       </p>
+
+      <PassGenerator />
       
       <PassChecker />
     </div>
