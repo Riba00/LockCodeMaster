@@ -17,6 +17,9 @@ export const PassGenerator = () => {
 
   return (
     <div className="mx-auto my-5 flex flex-col justify-center max-w-md gap-y-2">
+      <h2 className="mx-auto max-w-2xl text-center text-sm font-bold tracking-tight text-white sm:text-3xl">
+        Password Generator
+      </h2>
       <input
         id="generatedPassword"
         type="text"
