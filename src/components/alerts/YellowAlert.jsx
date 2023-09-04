@@ -14,10 +14,10 @@ export const YellowAlert = ({ passwordResults }) => {
           />
         </div>
         <div className="ml-3">
-          <h3 className="font-bold text-yellow-500">
+          <h3 className="font-bold text-lg text-yellow-500">
             Your password is <b>FAIR!!!</b>
           </h3>
-          {warning && <p className="text-sm text-yellow-700">{warning}.</p>}
+          {warning && <p className="text-yellow-700">{warning}.</p>}
           <h4 className="text-sm font-medium text-yellow-800 mt-1">
             <b>TRY TO:</b>
           </h4>
