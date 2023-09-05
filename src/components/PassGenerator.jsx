@@ -7,17 +7,16 @@ export const PassGenerator = () => {
 
   const generatePassword = () => {
     setGeneratedPassword(getGeneratedPassword());
-    console.log(getGeneratedPassword());
   };
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(generatedPassword);
-    alert("Copied to clipboard");
+    alert("Password copied to clipboard");
   };
 
   return (
     <div className="mx-auto my-5 flex flex-col justify-center max-w-md gap-y-2">
-      <h2 className="mx-auto max-w-2xl text-center text-sm font-bold tracking-tight text-white sm:text-3xl">
+      <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-3xl">
         Password Generator
       </h2>
       <input

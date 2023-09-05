@@ -37,13 +37,12 @@ export const PassChecker = () => {
   useEffect(() => {
     if (password) {
       const results = zxcvbn(password);
-      console.log(results);
       setPasswordResults(results);
     }
   }, [password]);
   return (
-    <div className="mt-5">
-      <h2 className="mx-auto max-w-2xl text-center text-sm font-bold tracking-tight text-white sm:text-3xl">
+    <>
+      <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-3xl">
         Password Tester
       </h2>
       <div className="mx-auto mt-3 flex max-w-md gap-x-4">
@@ -110,6 +109,6 @@ export const PassChecker = () => {
           </defs>
         </svg>
       </div>
-    </div>
+    </>
   );
 };
